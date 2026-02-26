@@ -3,171 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhD Уринов С.Н. — Геология и Наука</title>
+    <title>PhD Urinov S.N.</title>
     <style>
         :root {
-            --primary-color: #2b2d2f; /* Глубокий темный из логотипа */
-            --accent-color: #e62129;  /* Энергичный красный из логотипа */
+            --primary-color: #2b2d2f;
+            --accent-color: #e62129;
             --bg-light: #f9f9f9;
-            --text-main: #333;
         }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: var(--bg-light); margin: 0; padding: 20px; line-height: 1.6; }
         .container { max-width: 900px; margin: 0 auto; }
 
+        /* Переключатель языков */
+        .lang-switcher { text-align: right; margin-bottom: 15px; }
+        .lang-btn {
+            background: #fff; border: 1px solid #ddd; padding: 5px 10px;
+            cursor: pointer; border-radius: 5px; font-weight: bold; margin-left: 5px;
+            transition: 0.3s;
+        }
+        .lang-btn.active { background: var(--accent-color); color: white; border-color: var(--accent-color); }
+
         header {
-            background: white;
-            padding: 40px 20px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-            border-top: 5px solid var(--accent-color);
+            background: white; padding: 40px 20px; border-radius: 20px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; border-top: 5px solid var(--accent-color);
         }
 
-        .logo-img {
-            width: 120px;
-            margin-bottom: 15px;
-        }
-
-        .phd-badge {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 4px 15px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        h1 { color: var(--primary-color); margin: 10px 0; font-size: 2rem; }
-        .dept-info { color: #666; font-size: 1.1rem; margin-bottom: 5px; }
-        .university { font-weight: bold; color: var(--primary-color); }
-
-        .section {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            margin-bottom: 25px;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-        }
+        .logo-img { width: 120px; margin-bottom: 15px; }
+        .phd-badge { display: inline-block; background: var(--accent-color); color: white; padding: 4px 15px; border-radius: 50px; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; }
         
-        h2::before {
-            content: "";
-            width: 8px;
-            height: 25px;
-            background: var(--accent-color);
-            margin-right: 15px;
-            border-radius: 2px;
-        }
+        h1 { color: var(--primary-color); margin: 10px 0; }
+        .dept-info { color: #666; font-size: 1.1rem; }
+        .university { font-weight: bold; color: var(--primary-color); margin-bottom: 20px; }
 
-        .highlight-box {
-            background: #fff5f5;
-            border-left: 4px solid var(--accent-color);
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 0 10px 10px 0;
-        }
+        .section { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin-bottom: 25px; }
+        h2 { color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 10px; display: flex; align-items: center; }
+        h2::before { content: ""; width: 8px; height: 25px; background: var(--accent-color); margin-right: 15px; border-radius: 2px; }
 
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .highlight-box { background: #fff5f5; border-left: 4px solid var(--accent-color); padding: 20px; margin: 15px 0; border-radius: 0 10px 10px 0; }
+        .tag-list { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; list-style: none; }
+        .tag-list li { background: #f0f0f0; padding: 6px 12px; border-radius: 6px; font-size: 0.85rem; border: 1px solid #ddd; }
 
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding: 0;
-            list-style: none;
-        }
+        /* Скрытие неактивных языков */
+        [lang="uz"], [lang="en"] { display: none; }
 
-        .tag-list li {
-            background: #f0f0f0;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            border: 1px solid #ddd;
-        }
-
-        .footer-contacts { text-align: center; margin-top: 40px; color: #888; }
-
-        @media (max-width: 768px) {
-            .grid { grid-template-columns: 1fr; }
-            h1 { font-size: 1.6rem; }
-        }
+        .contact-btn { display: block; background: var(--accent-color); color: white; text-decoration: none; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
+    <div class="lang-switcher">
+        <button class="lang-btn" onclick="setLang('uz')">UZ</button>
+        <button class="lang-btn active" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+
     <header>
         <img src="logo.png" alt="Fan Vektori" class="logo-img" onerror="this.style.display='none'">
         <br>
-        <div class="phd-badge">Доктор философии (PhD)</div>
-        <h1>Уринов Собир Насиллоевич</h1>
-        <p class="dept-info">Заведующий кафедрой «Геология минеральных ресурсов»</p>
-        <p class="university">Университет геологических наук</p>
+        <div class="phd-badge">
+            <span lang="ru">Доктор философии по техническим наукам (PhD)</span>
+            <span lang="uz">Texnika fanlari falsafa doktori (PhD)</span>
+            <span lang="en">Doctor of Philosophy in Technical Sciences (PhD)</span>
+        </div>
+        <h1>
+            <span lang="ru">Уринов Собир Насиллоевич</span>
+            <span lang="uz">Urinov Sobir Nasilloyevich</span>
+            <span lang="en">Sobir Urinov Nasilloyevich</span>
+        </h1>
+        <p class="dept-info">
+            <span lang="ru">Заведующий кафедрой «Геология минеральных ресурсов»</span>
+            <span lang="uz">«Mineral resurslar geologiyasi» kafedrasi mudiri</span>
+            <span lang="en">Head of the "Geology of Mineral Resources" Department</span>
+        </p>
+        <p class="university">
+            <span lang="ru">Университет геологических наук</span>
+            <span lang="uz">Geologiya fanlari universiteti</span>
+            <span lang="en">University of Geological Sciences</span>
+        </p>
     </header>
 
     <div class="section">
-        <h2>Научные проекты и деятельность</h2>
+        <h2>
+            <span lang="ru">Научная деятельность</span>
+            <span lang="uz">Ilmiy faoliyat</span>
+            <span lang="en">Research Activities</span>
+        </h2>
         <div class="highlight-box">
-            <strong>Супервайзер гос. проекта:</strong><br>
-            «Оценка перспектив извлечения гелия и водорода из нефтегазовых месторождений»
+            <strong>
+                <span lang="ru">Супервайзер проекта в рамках гос. программы:</span>
+                <span lang="uz">Davlat dasturi doirasidagi loyiha supervayzeri:</span>
+                <span lang="en">Project Supervisor for a government program:</span>
+            </strong><br>
+            <span lang="ru">«Оценка перспектив извлечения гелия и водорода из нефтегазовых месторождений»</span>
+            <span lang="uz">«Neft va gaz konlaridan geli va vodorod ajratib olish istiqbollarini baholash»</span>
+            <span lang="en">"Assessing the prospects of helium and hydrogen extraction from oil and gas fields"</span>
         </div>
-        <p>🚀 <strong>Fan Vektori:</strong> Основатель ООО и Главный редактор научно-технического журнала «Вектор науки» (в процессе реализации).</p>
-        <p>📚 <strong>Публикации:</strong> Автор более 20 статей и тезисов в республиканских и международных изданиях.</p>
+        <p>
+            <span lang="ru">🚀 <strong>Fan Vektori:</strong> Главный редактор журнала «Вектор науки».</span>
+            <span lang="uz">🚀 <strong>Fan Vektori:</strong> «Fan vektori» jurnali bosh muharriri.</span>
+            <span lang="en">🚀 <strong>Fan Vektori:</strong> Editor-in-Chief of the "Vector of Science" journal.</span>
+        </p>
     </div>
 
-    <div class="grid">
-        <div class="section">
-            <h2>Преподавание</h2>
-            <p>Руководитель студенческого кружка <strong>«Молодой геолог-нефтяник»</strong>.</p>
-            <p><strong>Ключевые дисциплины:</strong></p>
-            <ul class="tag-list">
-                <li>Петрофизика</li>
-                <li>Разработка НГМ</li>
-                <li>Подсчет запасов</li>
-                <li>Скважинная добыча</li>
-                <li>Методология исследований</li>
-                <li>Методика преподавания</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Контакты</h2>
-            <p>📍 г. Ташкент, Университет геологических наук</p>
-            <p>💼 Кафедра «Геология минеральных ресурсов»</p>
-            <p>📧 <em>nasilloyevich@gmail.com</em></p>
-            <a href="mailto:nasilloyevich@gmail.com?subject=Вопрос с сайта Собира Уринова&body=Здравствуйте, Собир Насиллоевич!" 
-   style="display: block; background: var(--accent-color); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; text-decoration: none; text-align: center;">
-    Связаться со мной
-            </a>
-        </div>
+    <div class="section">
+        <h2>
+            <span lang="ru">Образовательная и наставническая деятельность</span>
+            <span lang="uz">Ta’lim berish va murabbiylik faoliyati</span>
+            <span lang="en">Educational and mentorship activities</span>
+        </h2>
+        <ul class="tag-list">
+            <li lang="ru">Петрофизика</li><li lang="uz">Petrofizika</li><li lang="en">Petrophysics</li>
+            <li lang="ru">Разработка нефтяных и газовых месторождений</li><li lang="uz">Neft va gaz konlarini qazib chiqarish</li><li lang="en">Oil and gas field development</li>
+            <li lang="ru">Оценка ресурсов и подсчет запасов нефти и газа</li><li lang="uz">Neft va gaz resurslarini baholash va zaxiralarini hisoblash</li><li lang="en">Assessment of resources and calculation of oil and gas reserves</li>
+        </ul>
     </div>
 
-    <div class="footer-contacts">
-        © 2026 Уринов С.Н. | Создано для науки и образования
+    <div class="section">
+        <a href="mailto:nasilloyevich@gmail.com?subject=Message from Website" class="contact-btn">
+            <span lang="ru">Обратная связь</span>
+            <span lang="uz">Bog‘lanmoq</span>
+            <span lang="en">Feedback</span>
+        </a>
     </div>
 </div>
 
+<script>
+    function setLang(lang) {
+        // Скрываем все языки
+        document.querySelectorAll('[lang]').forEach(el => el.style.display = 'none');
+        // Показываем выбранный
+        document.querySelectorAll('[lang="' + lang + '"]').forEach(el => {
+            el.style.display = (el.tagName === 'SPAN' || el.tagName === 'STRONG') ? 'inline' : 'block';
+        });
+        // Меняем активность кнопок
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+</script>
+
 </body>
-
 </html>
-
