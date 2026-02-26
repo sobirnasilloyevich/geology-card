@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка: Уринов С.Н.</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h1 { color: #2c3e50; font-size: 22px; }
+        p { color: #7f8c8d; }
+        
+        #courseList {
+            display: none; /* Скрываем список по умолчанию */
+            margin-top: 20px;
+            text-align: left;
+            background: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid lightblue;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        button:hover { background-color: #2980b9; }
+/* Специальные правила для смартфонов */
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start; /* На телефоне лучше прижать карточку к верху */
+        padding-top: 20px;
+    }
+    
+    .card {
+	width: 90%;
+        padding: 20px; /* Уменьшаем внутренние отступы, чтобы сэкономить место */
+    }
+
+    h1 {
+        font-size: 1.2rem; /* Немного уменьшаем заголовок Собир Насиллоевич */
+    }
+
+    button {
+        width: 100%; /* Делаем кнопку широкой — по ней легче попасть пальцем */
+        padding: 15px; /* Увеличиваем площадь нажатия */
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Собир Насиллоевич Уринов</h1>
+        <p>Заведующий кафедрой «Геология минеральных ресурсов»</p>
+        
+        <button id="mainBtn">Показать дисциплины</button>
+
+        <div id="courseList">
+            <strong>Мои курсы:</strong>
+            <ul>
+                <li>Петрофизика</li>
+                <li>Физика нефтяного пласта</li>
+                <li>Разработка месторождений</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 1. Находим кнопку и список в коде по их ID
+        const btn = document.getElementById('mainBtn');
+        const list = document.getElementById('courseList');
+
+        // 2. Описываем, что делать при клике
+        btn.onclick = function() {
+            // Если список скрыт — показываем, если виден — скрываем
+            if (list.style.display === "none" || list.style.display === "") {
+                list.style.display = "block";
+                btn.textContent = "Скрыть список";
+            } else {
+                list.style.display = "none";
+                btn.textContent = "Показать дисциплины";
+            }
+        };
+    </script>
+
+</body>
+</html>
