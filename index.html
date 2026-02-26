@@ -263,20 +263,28 @@
 
 <script>
     function changeLang(lang) {
-        document.querySelectorAll('[lang]').forEach(el => {
+        // 1. Скрываем элементы только ВНУТРИ body, не трогая сам тег html
+        document.body.querySelectorAll('[lang]').forEach(el => {
             el.style.display = 'none';
         });
 
-        document.querySelectorAll('[lang="' + lang + '"]').forEach(el => {
-            el.style.display = (el.tagName === 'SPAN' || el.tagName === 'STRONG') ? 'inline' : 'block';
+        // 2. Показываем элементы выбранного языка
+        document.body.querySelectorAll('[lang="' + lang + '"]').forEach(el => {
+            // Определяем: это строчный элемент (как имя) или блочный (как дисциплина)
+            const isInline = ['SPAN', 'STRONG', 'B', 'EM'].includes(el.tagName);
+            el.style.display = isInline ? 'inline' : 'block';
         });
 
+        // 3. Обновляем внешний вид кнопок
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.remove('active');
         });
-        document.querySelector('button[onclick="changeLang(\'' + lang + '\')"]').classList.add('active');
+        
+        // Делаем активной ту кнопку, на которую нажали
+        event.currentTarget.classList.add('active');
     }
 </script>
 
 </body>
 </html>
+
