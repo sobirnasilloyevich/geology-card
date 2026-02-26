@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Urinov S.N. — Science & Education</title>
+    <style>
+        :root {
+            --primary-color: #2b2d2f;
+            --accent-color: #e62129;
+            --bg-light: #f9f9f9;
+            --text-main: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .lang-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 5px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .lang-btn.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        header {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .logo-img { width: 120px; margin-bottom: 15px; }
+
+        .phd-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h1 { color: var(--primary-color); margin: 10px 0; font-size: 2rem; }
+        .dept-info { color: #666; font-size: 1.1rem; margin-bottom: 5px; }
+        .university { font-weight: bold; color: var(--primary-color); }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: "";
+            width: 8px;
+            height: 25px;
+            background: var(--accent-color);
+            margin-right: 15px;
+            border-radius: 2px;
+        }
+
+        .highlight-box {
+            background: #fff5f5;
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-direction: column; /* Список в столбик для лучшей читаемости длинных названий */
+            gap: 12px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tag-list li {
+            background: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            border: 1px solid #ddd;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .footer-contacts { text-align: center; margin-top: 40px; color: #888; }
+
+        [lang="uz"], [lang="en"] { display: none; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6rem; }
+            .section { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="lang-switcher">
+        <button class="lang-btn" onclick="changeLang('uz')">O‘ZB</button>
+        <button class="lang-btn active" onclick="changeLang('ru')">РУС</button>
+        <button class="lang-btn" onclick="changeLang('en')">ENG</button>
+    </div>
+
+    <header>
+        <img src="logo.png" alt="Fan Vektori" class="logo-img" onerror="this.style.display='none'">
+        <br>
+        <div class="phd-badge">
+            <span lang="ru">Доктор философии по техническим наукам (PhD)</span>
+            <span lang="uz">Texnika fanlari bo‘yicha falsafa doktori (PhD)</span>
+            <span lang="en">Doctor of Philosophy in Technical Sciences (PhD)</span>
+        </div>
+        <h1>
+            <span lang="ru">Уринов Собир Насиллоевич</span>
+            <span lang="uz">Urinov Sobir Nasilloyevich</span>
+            <span lang="en">Sobir Urinov Nasilloyevich</span>
+        </h1>
+        <p class="dept-info">
+            <span lang="ru">Заведующий кафедрой «Геология минеральных ресурсов»</span>
+            <span lang="uz">«Mineral resurslar geologiyasi» kafedrasi mudiri</span>
+            <span lang="en">Head of the Department "Geology of Mineral Resources"</span>
+        </p>
+        <p class="university">
+            <span lang="ru">Университет геологических наук</span>
+            <span lang="uz">Geologiya fanlari universiteti</span>
+            <span lang="en">University of Geological Sciences</span>
+        </p>
+    </header>
+
+    <div class="section">
+        <h2>
+            <span lang="ru">Научно-практическая деятельность</span>
+            <span lang="uz">Ilmiy-amaliy faoliyat</span>
+            <span lang="en">Scientific-practical activity</span>
+        </h2>
+        <div class="highlight-box">
+            <strong>
+                <span lang="ru">Супервайзер проекта в рамках Государственной программы:</span>
+                <span lang="uz">Davlat dasturi doirasidagi loyiha supervayzeri:</span>
+                <span lang="en">Project Supervisor under the State Program:</span>
+            </strong><br>
+            <span lang="ru">«Оценка перспектив извлечения гелия и водорода из нефтегазовых месторождений»</span>
+            <span lang="uz">«Neft va gaz konlaridan geliy va vodorodni ajratib olish istiqbollarini baholash»</span>
+            <span lang="en">"Assessment of prospects for helium and hydrogen extraction from oil and gas fields"</span>
+        </div>
+        <p>🚀 <strong>Fan Vektori:</strong> 
+            <span lang="ru">Основатель и Главный редактор журнала «Вектор науки».</span>
+            <span lang="uz">«Fan vektori» jurnali asoschisi va bosh muharriri.</span>
+            <span lang="en">Founder and Editor-in-Chief of the journal "Vector of Science".</span>
+        </p>
+        <p>📚 <strong>
+            <span lang="ru">Публикации:</span>
+            <span lang="uz">Nashrlar:</span>
+            <span lang="en">Publications:</span>
+        </strong> 
+            <span lang="ru">Автор более 20 статей и тезисов.</span>
+            <span lang="uz">20 dan ortiq maqola va tezislar muallifi.</span>
+            <span lang="en">Author of more than 20 articles and abstracts.</span>
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>
+            <span lang="ru">Преподавание и наставничество</span>
+            <span lang="uz">O‘qituvchilik va murabbiylik</span>
+            <span lang="en">Teaching and mentorship</span>
+        </h2>
+        <p>
+            <span lang="ru">Руководитель студенческого кружка <strong>«Молодой геолог-нефтяник»</strong>.</span>
+            <span lang="uz"><strong>«Yosh geolog-neftchi»</strong> talabalar to‘garagi rahbari.</span>
+            <span lang="en">Head of the <strong>"Young Petroleum Geologist"</strong> students club.</span>
+        </p>
+        <ul class="tag-list">
+            <li lang="ru">Петрофизика</li><li lang="uz">Petrofizika</li><li lang="en">Petrophysics</li>
+            
+            <li lang="ru">Разработка нефтяных и газовых месторождений</li><li lang="uz">Neft va gaz konlarini qazib chiqarish</li><li lang="en">Oil and gas field development</li>
+            
+            <li lang="ru">Контроль разработки нефтяных и газовых месторождений</li><li lang="uz">Neft va gaz konlarini qazib chiqarishni nazorat qilish</li><li lang="en">Control over oil and gas field development</li>
+            
+            <li lang="ru">Оценка ресурсов и подсчет запасов нефти и газа</li><li lang="uz">Neft va gaz zaxiralarini hisoblash</li><li lang="en">Oil and Gas Reserves Estimation</li>
+            
+            <li lang="ru">Технология эксплуатации нефтяных и газовых скважин</li><li lang="uz">Neft va gaz quduqlarini ishlatish texnologiyasi</li><li lang="en">Technology of oil and gas well operation</li>
+            
+            <li lang="ru">Сбор и подготовка скважинной продукции нефтяных и газовых скважин</li><li lang="uz">Neft va gaz quduqlari mahsulotlarini yig'ish va tayyorlash</li><li lang="en">Gathering and processing of oil and gas well products</li>
+            
+            <li lang="ru">Методология научного исследования</li><li lang="uz">Ilmiy tadqiqot metodologiyasi</li><li lang="en">Methodology of scientific research</li>
+            
+            <li lang="ru">Методика преподавания специальных дисциплин</li><li lang="uz">Maxsus fanlarni o'qitish metodikasi</li><li lang="en">Methodology of teaching special disciplines</li>
+        </ul>
+    </div>
+
+    <div class="footer-contacts">
+        © 2026 Уринов С.Н. | <span lang="ru">Наука и образование</span><span lang="uz">Fan va ta'lim</span><span lang="en">Science & Education</span>
+    </div>
+</div>
+
+<script>
+    function changeLang(lang) {
+        document.querySelectorAll('[lang]').forEach(el => {
+            el.style.display = 'none';
+        });
+
+        document.querySelectorAll('[lang="' + lang + '"]').forEach(el => {
+            el.style.display = (el.tagName === 'SPAN' || el.tagName === 'STRONG') ? 'inline' : 'block';
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector('button[onclick="changeLang(\'' + lang + '\')"]').classList.add('active');
+    }
+</script>
+
+</body>
+</html>
